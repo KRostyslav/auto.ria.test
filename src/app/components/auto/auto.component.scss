@@ -1,0 +1,24 @@
+//.block_auto{
+//  width: 25%;
+//  display: block;
+//}
+.block {
+ padding: 5px;
+  .block_info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  button{
+    margin: 5px 0;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .block {
+    margin: 5px;
+    .block_info{
+      display: block;
+    }
+  }
+}

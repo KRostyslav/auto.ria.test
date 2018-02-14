@@ -1,0 +1,21 @@
+.block_autos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .block_auto{
+    display: block;
+    width: 50%;
+    border: solid 1px gray;
+    border-radius: 2px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .block_autos {
+    flex-direction: column;
+    .block_auto{
+      width: 100%;
+    }
+  }
+}
