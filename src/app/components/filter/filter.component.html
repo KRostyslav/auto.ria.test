@@ -1,30 +1,23 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-8 col-sm-12">
 
-    <select #selectCategory (change)="getMarks(selectCategory.value)">
-      <option *ngFor="let category of categories" [value]="category.value">
-        {{category.name}}
-      </option>
-    </select>
+      <select #selectCategory class="custom-select col-md-4" (change)="getMarks(selectCategory.value)">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let category of categories" [value]="category.value">
+          {{category.name}}
+        </option>
+      </select>
 
-    <select #selectMark (change)="getModels(selectMark.value)">
-      <option *ngFor="let auto of autos" [value]="auto.marka_id  ">
-        {{auto.name}}
-      </option>
-    </select>
+      <select *ngIf="currentCategoryId" #selectMark class="custom-select col-md-4"
+              (change)="getModels(selectMark.value, mark )">
+        <option *ngFor="let mark of marks" [value]="mark.marka_id">
+          {{mark.name}}
+        </option>
+      </select>
 
-    <select #selectModel (change)="getMark(selectModel.value)">
-      <option *ngFor="let model of models" [value]="model.value">
-        {{model.name}}
-      </option>
-    </select>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="block_autos ">
-      <app-auto class="block_auto" *ngFor="let model of models"></app-auto>
     </div>
   </div>
 </div>
+
+

@@ -7,7 +7,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {AutoComponent} from './components/auto/auto.component';
 import {HttpService} from './services/http.service';
 import {HttpClientModule} from '@angular/common/http';
-import { FilterComponent } from './components/filter/filter.component';
+import {FilterComponent} from './components/filter/filter.component';
+import {GlobalService} from './services/global.service';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,11 +21,14 @@ import { FilterComponent } from './components/filter/filter.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    GlobalService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
