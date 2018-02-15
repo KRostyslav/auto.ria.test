@@ -4,14 +4,13 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class HttpService {
 
-  private _apiKey = '';
-  private _apiUrl = 'http://api.auto.ria.com/';
-  private _newApiUrl = 'https://developers.ria.com/auto/';
+  private _apiKey = process.env.API_KEY;
+  private _newApiUrl = process.env.API_URL;
 
   constructor( private _httpClient: HttpClient ) { }
 
   getCategory() {
-    return this._httpClient.get(this._apiUrl + 'categories');
+    return this._httpClient.get(this._newApiUrl + 'categories');
   }
 
   getAutoByCategory( category_id: number ) {
