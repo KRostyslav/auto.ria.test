@@ -9,13 +9,11 @@ export class GlobalService {
 
   constructor() { }
 
-
   getModels() {
     return this._models.getValue();
   }
 
   setModels( value ) {
     this._models.next(value);
-    console.log('BS', value);
   }
 }

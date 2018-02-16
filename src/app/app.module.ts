@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FilterComponent} from './components/filter/filter.component';
 import {GlobalService} from './services/global.service';
 import {FormsModule} from '@angular/forms';
+import { DialogComponent } from './components/dialog/dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -17,10 +19,12 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     NavbarComponent,
     AutoComponent,
-    FilterComponent
+    FilterComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule
   ],

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+
 import {HttpService} from './services/http.service';
 
 @Component({
@@ -7,15 +8,14 @@ import {HttpService} from './services/http.service';
   styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
-  title = 'app';
+
   categories;
 
-  constructor( private httpService: HttpService ) {
-    this.httpService.getCategory()
-      .subscribe(res => {
-        this.categories = res;
+  constructor( private _httpService: HttpService ) {
+    this._httpService.getCategory()
+      .subscribe(response => {
+        this.categories = response;
       });
   }
-
 
 }

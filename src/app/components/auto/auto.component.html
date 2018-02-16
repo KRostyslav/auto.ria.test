@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row">
-    <!--<h3 *ngIf="currentMarkId">Models of {{currentMark}}</h3>-->
-    <div class="block_autos" *ngIf="filtersModels">
 
-      <form  class="form-inline">
-        <input class="form-control" [(ngModel)]="nameOfModel" name="nameModel"
-               type="text" placeholder="Search Model..." aria-label="Search"
+    <div class="block_autos" *ngIf="models.length">
+
+      <form class="form-inline">
+        <input class="form-control"
+               [(ngModel)]="nameOfModel"
+               name="nameModel"
+               type="text"
+               placeholder="Search Model..."
+               aria-label="Search"
                (keyup)="searchModel()">
       </form>
 
@@ -21,38 +25,27 @@
               petentium at mei. Id tritani adipiscing constituam vel.</p>
           </div>
           <div class="block_image">
-            <img src="https://dummyimage.com/300x200/1d8499/d6c122.png&text=AUTO.RIA" alt="">
+            <img src="https://dummyimage.com/300x200/1d8499/d6c122.png&text=AUTO.RIA"
+                 alt='photo_{{model.name}}'>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="getAvaregePrice(model.model_id, model.marka_id)">Average</button>
-        <h3>{{averagePrice | currency }}</h3>
+
         <button type="button" class="btn btn-primary"
-                data-toggle="modal" data-target="#exampleModal">
-          More info...
+                (click)="getAveragePrice(model.model_id, model.marka_id, model.name)">
+          Show average price
         </button>
+
+        <app-dialog [(visible)]="showDialog">
+          <h3 *ngIf="!averagePrice">Sorry! Information absent</h3>
+          <h3 *ngIf="averagePrice">Avarege price of {{modelName}} is {{averagePrice | currency }}</h3>
+          <button (click)="showDialog = !showDialog" class="btn">Close</button>
+        </app-dialog>
+
       </div>
 
     </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Average price..</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+    <div class="block_autos" *ngIf="!models.length">
+      <h1>None data</h1>
     </div>
   </div>
 </div>

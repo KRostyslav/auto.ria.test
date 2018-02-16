@@ -2,15 +2,20 @@
   <div class="row">
     <div class="col-md-8 col-sm-12">
 
-      <select #selectCategory class="custom-select col-md-4" (change)="getMarks(selectCategory.value)">
-        <option selected>Open this select menu</option>
+      <select #selectCategory
+              class="custom-select col-md-4"
+              (change)="getMarks(selectCategory.value)">
+        <option selected>Select category</option>
         <option *ngFor="let category of categories" [value]="category.value">
           {{category.name}}
         </option>
       </select>
 
-      <select *ngIf="currentCategoryId" #selectMark class="custom-select col-md-4"
-              (change)="getModels(selectMark.value, mark )">
+      <select *ngIf="currentCategoryId"
+              #selectMark
+              class="custom-select col-md-4"
+              (change)="getModels(selectMark.value)">
+        <option selected>Select mark</option>
         <option *ngFor="let mark of marks" [value]="mark.marka_id">
           {{mark.name}}
         </option>

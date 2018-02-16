@@ -1,23 +1,30 @@
-.block {
-  padding: 5px;
-  margin: 5px 0px;
-  border-radius: 3px;
-  border: solid 1px gray;
-  .block_info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  button {
-    margin: 5px 0;
+.container{
+  .row{
+    margin: 0 20px;
+    .block {
+      padding: 5px;
+      margin: 5px 0;
+      border-radius: 3px;
+      border: solid 1px gray;
+      .block_info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      button {
+        margin: 5px 0;
+      }
+    }
+    @media all and (max-width: 500px) {
+      .block {
+        margin: 5px;
+        .block_info {
+          display: block;
+        }
+      }
+    }
+
   }
 }
 
-@media all and (max-width: 500px) {
-  .block {
-    margin: 5px;
-    .block_info {
-      display: block;
-    }
-  }
-}
+

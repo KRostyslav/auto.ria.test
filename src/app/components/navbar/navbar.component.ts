@@ -8,29 +8,9 @@ import {HttpService} from '../../services/http.service';
 })
 export class NavbarComponent implements OnInit {
 
-  categories;
-  category_id;
-  mark_id;
-  // categories;
-  autos;
-  models;
-
-  constructor(private httpService: HttpService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.httpService.getCategory()
-      .subscribe(res => {
-        this.categories = res;
-      });
-  }
+  ngOnInit() {}
 
-  getMarks(category_id) {
-    console.log('YES!', category_id);
-    this.category_id = category_id;
-    this.httpService.getAutoByCategory(category_id)
-      .subscribe(res => {
-        this.autos = res;
-      });
-  }
 }
